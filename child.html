@@ -1,0 +1,20 @@
+<html>
+<body id="childBody" style="background:#fee">
+	<h2>This is the child page</h2>
+</body>
+</html>
+<script>
+
+    function setBackground(color){
+	    var body = document.getElementById('childBody');
+		body.style.backgroundColor = color;
+	}
+	
+	window.onload = function(){
+		//setBackground('black');
+		if (parent && parent.registerChild){
+			console.log('registering with parent');
+		    parent.registerChild(setBackground);
+		}
+	};
+</script>
